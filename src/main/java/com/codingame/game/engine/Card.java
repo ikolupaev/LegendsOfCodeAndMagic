@@ -94,9 +94,18 @@ public class Card {
     this.oppHealthChange = Integer.parseInt(data[8]);
     this.cardDraw =        Integer.parseInt(data[9]);
 
-    this.comment = data[11];
+    this.comment = "";
+    this.tooltipTextBase = "";
+
+    if (data.length > 11) {
+      this.comment = data[11];
+    }
+    
+    if (data.length > 10) {
+      this.tooltipTextBase = data[10];
+    }
+
     generateText();
-    this.tooltipTextBase = data[10];
   }
 
   public void generateText()
